@@ -1,0 +1,99 @@
+<!-- main wrapper for the entire dashboard-->
+ <div class="dashboard-container">
+   <!-- Header -->
+  <div class="header">
+    <div class="title">
+      <h1>RSU</h1>
+    </div>
+    <!-- User Info -->
+    <div class="stock-info">
+      <!-- Stcok price -->
+      <span>Current Stock Price : </span>
+
+      <!--*ngIf ensures it renders only if equityData is loaded.-->
+      <span class="stock-price" *ngIf="equityData">${{equityData.stockPrice}}</span>
+    </div>
+
+   <!--Displays a user avatar placeholder.-->
+    <div class="user-info">
+      <span *ngIf="equityData">{{equityData.username}}</span>
+      <div class="user-avatar">
+        <div class="avatar-placeholder"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- colored background (blue) for the main section.-->
+  <div class="blue-container">
+
+
+    <div class="dashboard-content" *ngIf="!loading && !error">
+      <div class="row g-4">
+        <div class="col-md-6">
+
+
+          <!--Each app-stock-card or app-vesting-progress is a reusable 
+          Angular component passed props ([value], [title], etc.).-->
+          <app-stock-card
+            title="Total Stocks Granted"
+            [value]="equityData?.totalStocksGranted || 0"
+            colorClass="dark-blue"
+            class="top-left-card">
+          </app-stock-card>
+        </div>
+        <div class="col-md-6">
+
+
+          <!--Shows a progress bar and next vesting date-->
+          <app-vesting-progress
+            [percentage]="equityData?.vestingPercentage || 0"
+            [nextDate]="equityData?.nextVestingDate || ''">
+          </app-vesting-progress>
+        </div>
+        <div class="col-md-6">
+
+
+          <!--Shows the remaining stocks that haven’t vested yet-->
+          <app-stock-card
+            title="Remaining Unvested Stocks"
+            [value]="equityData?.remainingUnvestedStocks || 0"
+            colorClass="teal"
+            class="bottom-left-card">
+          </app-stock-card>
+        </div>
+        <div class="col-md-6">
+          <app-stock-card
+            title="My Current Value"
+            [value]="equityData?.currentValue || 0"
+            [isCurrency]="true"
+            colorClass="dark-blue"
+            class="bottom-right-card">
+          </app-stock-card>
+        </div>
+      </div>
+    </div>
+    
+
+
+    <!--Shows a Bootstrap spinner while data is loading-->
+    <div class="loading-container" *ngIf="loading">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+
+    <!--If there's an error fetching data, this message is shown-->
+    <div class="error-container" *ngIf="error">
+      <div class="alert alert-danger">
+        Error loading equity data. Please try again later.
+      </div>
+    </div>
+  </div>
+  
+</div>
+<!-- Footer Label -->
+<div class="footer-label">
+  © 2025 EquiHub. All Rights Reserved.
+</div>

@@ -1,0 +1,101 @@
+.sidenav {
+  background-color: #f5f5f5; //light gray background 
+  display: flex; //Flxbox for layout-flexible and responsive way
+  flex-direction: column; //vertical stacking of children
+  align-items: center; //center align children horizontally
+  padding: 20px 0; //adds vertical padding to the container:20px at the top and bottom,0 on the left and right.
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // soft shadow around the sidebar
+  min-height: 100vh; //100% of the viewport height
+  
+}
+
+
+//This styles the container that holds the logo and text of the logo
+.logo-container {
+  display: flex;
+  flex-direction: column;//vertical stacking of children
+  align-items: center; //center align children horizontally
+  margin-bottom: 40px; //space between logo and nav links
+}
+
+
+//This is the container div that holds the image and text of the logo
+.logo {
+  width: 160px;
+  height: 160px;
+  background-color: transparent;// no bg color 
+  border-radius: 10px;//rounded corners
+  display: flex;//flexbox for layout
+  justify-content: center;// center wrt left to right 
+  align-items: center; //center wrt top to bottom 
+  margin-bottom: 5px;
+}
+
+
+//This styles the actual image inside the .logo container
+.logo img {
+  width: 180px;  //image width
+  height: 180px; //image height
+  object-fit: contain; //maintain aspect ratio of the image
+}
+
+
+
+//This styles the text inside the .logo container
+.logo-text {
+  color: #3e7a6f; //teal text color 
+  font-weight: 500; //medium font weight
+  font-size: 6rem;  //relative too root font size
+}
+
+
+//A vertical list of navigation buttons
+.nav-links {
+  width: 100%; //full width of the container parent 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: auto;//Pushes elements below (like logout/back buttons) to the bottom
+}
+
+
+//This styles the individual navigation buttons inside the .nav-links container
+.nav-btn {
+  width: 90%;//90% of the parent container width
+  padding: 12px;//Space inside the button
+  margin: 8px 0;//Space inside the button
+  border: none;//No border
+  border-radius: 30px;//Rounded pill-shaped corners
+  background-color: transparent;
+  font-weight: 500;//Medium bold text
+  transition: all 0.3s;//Smooth animation on hover/active
+  
+  &.active {
+    background-color: #0275d8;//Blue background for the selected tab
+    color: white;// White text on active tab
+  }
+  
+  &:hover:not(.active) {
+    background-color: #e0e0e0;// Light grey background when hovered (if not active)
+  }
+}
+
+
+//Provides a simple back icon button with centered icon
+.back-btn {
+  width: 40px;//small square
+  height: 40px;
+  border-radius: 50%;//mske it circle 
+  background-color: #f0f0f0;//light grey bg 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;//show hand pointer on hover
+  
+
+  // represent icons inside the button
+  i {
+    font-size: 20px;//Icon size 
+    color: #666;//medium grey color 
+  }
+}

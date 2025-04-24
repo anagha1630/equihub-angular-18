@@ -1,1 +1,230 @@
-/* You can add global styles to this file, and also import other style files */
+/* Add these to your styles.scss file */
+
+/* Desktop adjustments */
+.sidenav {
+  position: relative;
+}
+
+.logo-container {
+  align-self: flex-start;
+}
+
+/* Fix blue container overlap */
+.blue-container {
+  margin-bottom: 20px;
+  width: 100%;
+  clear: both;
+  overflow: hidden;
+}
+
+/* Header layout - for desktop view */
+.dashboard-container .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 50px;
+  width: 100%;
+}
+
+.dashboard-container .user-info {
+  margin-left: auto;
+    /* Push user info to the far right in desktop */
+    margin-top: -50px;
+    
+}
+
+
+/* Make current stock price text bigger */
+.stock-info {
+  font-size: 1.9rem !important;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-40%);
+  width: auto;
+ 
+  .stock-price {
+    color: #00a651 !important;
+    font-weight: bold !important;
+    font-size: 1.9rem !important;
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  /* Container adjustments */
+  .container-fluid {
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  /* Sidenav adjustments */
+  .sidenav {
+    height: auto !important;
+    min-height: auto !important;
+    flex-direction: row !important;
+    justify-content: space-between;
+    padding: 10px 0 !important;
+    position: sticky;
+    top: 40px; /* Leave space for logout button */
+    z-index: 10;
+  }
+  
+  /* Keep logo visible but smaller */
+  .logo-container {
+    display: flex !important;
+    margin-bottom: 0 !important;
+    padding-left: 1px;
+  }
+  
+  .logo {
+    width: 90px !important;
+    height: 90px !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .logo img {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  
+  /* Nav links to horizontal */
+  .nav-links {
+    flex-direction: row !important;
+    justify-content: center;
+    flex: 1;
+    margin-bottom: 0 !important;
+  }
+  
+  .nav-btn {
+    width: auto !important;
+    padding: 8px 15px !important;
+    margin: 0 5px !important;
+    font-size: 0.9rem;
+  }
+  
+  /* Move user info beside logout */
+  .user-info-mobile {
+    position: relative;
+    top: 10px;
+    right: 80px; /* Position to left of logout button */
+    z-index: 20;
+    display: flex !important;
+    align-items: center;
+    font-size: 0.9rem;
+    background-color: #f5f5f5;
+    padding: 5px 10px !important;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .user-info-mobile span {
+    margin-right: 14px;
+    
+  }
+  
+  .user-info-mobile .user-avatar {
+    width: 25px !important;
+    height: 25px !important;
+  }
+  
+  /* Hide desktop user info */
+  .dashboard-container .user-info {
+    display: none !important;
+  }
+  
+  /* Logout button position */
+  .logout-btn {
+    position: relative;
+    top: 1px;
+    right: 15px;
+    z-index: 20;
+    background-color: #f5f5f5;
+    padding: 5px 10px !important;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex !important;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+  
+  /* Card layout for mobile - stack them vertically with uniform width */
+  .row.g-4 {
+    display: flex;
+    flex-direction: column;
+    width: 210%;
+  }
+  
+  .col-md-6 {
+    width: 100% !important;
+    padding: 8px !important;
+    margin-bottom: 15px !important;
+    position: static !important;
+  }
+  
+  /* Make all cards the same size */
+  :host ::ng-deep .top-left-card .stock-card,
+  :host ::ng-deep .bottom-left-card .stock-card,
+  :host ::ng-deep .bottom-right-card .stock-card,
+  :host ::ng-deep .vesting-card {
+    height: auto !important;
+    min-height: 180px;
+    width: 100% !important;
+    position: static !important;
+    margin-bottom: 0;
+  }
+  
+  /* Specifically ensure vesting card has same width */
+  :host ::ng-deep .vesting-card {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  
+  /* Header adjustments for mobile */
+  .dashboard-container .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 40px;
+  }
+  
+  /* Ensure stock info displays properly in mobile but still large */
+  .stock-info {
+    width: 100%;
+    margin-top: 5px;
+    font-size: 1.5rem !important;
+    
+    .stock-price {
+      color: #00a651 !important;
+      font-weight: bold !important;
+      font-size: 1.5rem !important;
+    }
+  }
+  
+  /* Fix blue container in mobile */
+  .blue-container {
+    width: 100% !important;
+    box-sizing: border-box;
+    padding: 15px;
+  }
+}
+/* Black copyright footer */
+.copyright-footer {
+  background-color: #000;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.copyright-text {
+  font-size: 0.9rem;
+}
+
+/* Add margin at bottom to prevent footer overlap */
+.dashboard-container {
+  margin-bottom: 40px;
+}
+

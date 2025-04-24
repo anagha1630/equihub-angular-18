@@ -1,0 +1,70 @@
+// esop-vesting-progress.component.scss
+.vesting-card {
+    background-color: #135e13; // Dark green background
+    border-radius: 12px;
+    padding: 25px;
+    color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .card-title {
+      font-size: 2.4rem;
+      margin-bottom: 15px;
+      font-weight: 500;
+      text-align: center;
+    }
+    
+    .chart-container {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      margin: auto;
+      @media (max-width: 768px) {
+        width: 150px;
+        height: 150px;
+      }
+      .chartjs-render-monitor {
+        /* Adjusting background color for the inner circle */
+        background-color: #c1e1c1 !important;
+      }
+    }
+    
+    .percentage-indicator {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      
+      .percentage {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #a5d6a7; // Light green color
+      }
+      
+      .label {
+        font-size: 1rem;
+        color: #a5d6a7; // Light green color
+      }
+    }
+    
+    .next-vesting-date {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 12px 40px;
+      text-align: center;
+      margin-top: 10px;
+      
+      .date-label {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+      }
+      
+      .date-value {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+    }
+  }

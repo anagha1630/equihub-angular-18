@@ -1,0 +1,294 @@
+.dashboard-container {
+  background-color: white;//bg for entire dashboard
+  min-height: 100vh;//container takes full screen height 
+  padding: 20px;//: Adds space inside the container
+  display: flex;
+  flex-direction: column;//Main layout in vertical flow
+  flex-wrap: wrap;// Useful if you expect child elements to wrap
+  gap: 20px; //space between child elements
+  justify-content: space-between;//distributes space between child elements
+  
+  
+  @media (max-width: 768px) {
+    flex-direction: column; //// On small screens, maintain vertical layout
+    align-items: center;// Horizontally center child elements
+    padding: 10px !important;// Reduces padding on smaller screens and overrides other styles
+  }
+  }
+
+
+
+//Used to arrange title and user info on the same row, spacing them out horizontally.
+.title-user-container {
+  display: flex;
+  justify-content: space-between;// Space out title and user info on the same row
+  align-items: center;// Align both title and user info vertically center
+  width: 100%; // Make it span the full width of the parent container
+}
+
+
+// Header section containing RSU title and user info
+.header {
+  display: flex;
+  justify-content: space-between;// Title and user info sit on opposite ends
+  align-items: center;// Vertically center content
+  padding-bottom: 20px;// Add space below the header for visual separation
+
+
+  //Styled RSU heading
+  .title h1 {
+    color: #0b476b;
+    font-weight: bold; // Makes the heading bold
+    margin: 0;// Removes default margin
+    font-size: 2.5rem; // Makes the title large
+  }
+
+
+  //Shows stock information like stock price and stock name
+  .stock-info {
+    font-size: 1.9rem;
+    text-align: center; // Centers the text inside
+    
+   //This is the stock price value
+    .stock-price {
+      color: #00a651;
+      text-align: center;  // Centers the stock price
+      font-weight: bold;// Highlights it with bold font
+      font-size: 1.7rem; // Slightly smaller than main stock info
+    }
+  }
+
+  // User profile section including avatar and name
+  .user-info {
+    display: flex;// Layout items side by side
+    align-items: center;
+    gap: 10px;
+   
+    span {
+      font-weight: 500;// Semi-bold username
+    }
+   
+
+    // Circle container for user's avatar
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      background-color: #ccc; // Gray fallback color
+      border-radius: 50%;
+      overflow: hidden; // Makes it a perfect circle
+     
+
+      // Placeholder image inside the avatar
+      .avatar-placeholder {
+        width: 100%; // Takes full width of the parent
+        height: 100%;
+        background-color: #888;
+      }
+    }
+  }
+}
+
+
+
+//Container for the main content of the dashboard
+// Section with light blue background for main content area
+.blue-container {
+  background-color: #c3dcf7;
+  border-radius: 16px;//rounded corners 
+  padding: 20px;// Space inside the container
+  margin-bottom: 20px;// Space below the container to separate it from other elements
+  flex-grow: 1;//// Allows the container to grow and fill available space in Flexbox
+}
+
+// This is the main content area of the dashboard
+.dashboard-content {
+  height: 100%;
+}
+
+
+// This is the container for the cards in the dashboard
+.loading-container, .error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;//// Minimum height so it doesn't collapse while loading
+}
+
+/* Top-left card */
+:host ::ng-deep .top-left-card .stock-card {
+  height: 360px;// Fixed height for consistency
+  border: 2px solid black;
+  border-radius: 8px; // Slightly rounded corners
+  background-color: white;
+}
+
+:host ::ng-deep .bottom-left-card .stock-card {
+  height: 260px;  /* Increase this value as needed */
+  border: 2px solid black;
+  position: absolute;
+  width: 97%;
+  bottom: 0;  /* This anchors the card to the bottom */
+}
+
+/* Make the container have relative positioning */
+.col-md-6 {
+  position: relative;
+  min-height: 200px; /* Should match or exceed card height */
+}
+
+/* Top-right card (vesting progress) - maintaining original styling */
+:host ::ng-deep .vesting-card {
+  height: 200px;
+  border: 2px solid black;
+}
+
+/* Bottom-right card */
+:host ::ng-deep .bottom-right-card .stock-card {
+  height: 200px;
+  border: 2px solid black;
+  border-radius: 8px;
+  background-color: white;
+}
+
+/* Common styling for all cards */
+:host ::ng-deep .stock-card,
+:host ::ng-deep .vesting-card {
+  border: 2px solid black;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+.footer-label {
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: 500;
+  font-size: 1rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999; // Stays above other content
+}
+
+
+
+
+
+
+
+
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 10px;
+  }
+  
+  .blue-container {
+    padding: 15px;
+  }
+  
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+  
+  .title h1 {
+    font-size: 1.5rem;
+  }
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .stock-info {
+    margin-top: 50px;/* Increase this value to move stock info further down */
+    font-size: 0.9rem;
+    width: 100%;
+    order:2;
+    display: flex;            /* Use flexbox inside stock-info */
+    justify-content: center;  /* Centers the stock info horizontally */
+    align-items: center;   
+  
+    .stock-price {
+      font-size: 0.8rem;
+      order: 2; 
+    }
+  }
+  
+  /* Keep RSU title and user info on same line */
+  .title, .user-info {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1px;
+  }
+  
+  
+  .row.g-4 {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -8px;
+  }
+  
+  .col-md-6 {
+    flex: 0 0 50% !important;
+    width: 50% !important;
+    padding: 0 8px !important;
+    min-height: 180px;
+  }
+  
+  /* Fix card heights */
+  :host ::ng-deep .top-left-card .stock-card,
+  :host ::ng-deep .bottom-left-card .stock-card,
+  :host ::ng-deep .bottom-right-card .stock-card,
+  :host ::ng-deep .vesting-card {
+    height: auto !important;
+    min-height: 180px;
+    width: 100% !important;
+    position: relative !important;
+    bottom: auto;
+  }
+  
+  /* Adjust card text sizes */
+  :host ::ng-deep .stock-card .card-title,
+  :host ::ng-deep .vesting-card .card-title {
+    font-size: 1.5rem !important;
+    margin-bottom: 10px !important;
+  }
+  
+  :host ::ng-deep .stock-card .card-value {
+    font-size: 2rem !important;  
+  }
+  
+  /* Fix vesting progress chart size */
+  :host ::ng-deep .vesting-card .chart-container {
+    width: 120px !important;
+    height: 120px !important;
+  }
+  
+  :host ::ng-deep .vesting-card .percentage-indicator .percentage {
+    font-size: 1.5rem !important;
+  }
+  
+  :host ::ng-deep .vesting-card .next-vesting-date {
+    padding: 8px 20px !important;
+  }
+  
+  :host ::ng-deep .vesting-card .next-vesting-date .date-label,
+  :host ::ng-deep .vesting-card .next-vesting-date .date-value {
+    font-size: 1rem !important;
+  }
+
+  .dashboard-container {
+    padding-bottom: 60px; // add extra bottom space
+  }
+  
+  
+}

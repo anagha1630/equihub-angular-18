@@ -1,0 +1,44 @@
+<!-- vesting-schedule.component.html -->
+<div class="vesting-schedule-container">
+    <div class="header">
+      <h1>VESTING SCHEDULE</h1>
+    </div>
+    
+    <div class="table-container">
+      <table class="vesting-table">
+        <thead>
+          <tr>
+            <th [appTooltip]="tooltips.slNo">Sl.No</th>
+            <th [appTooltip]="tooltips.symbol">Symbol</th>
+            <th [appTooltip]="tooltips.type">Type</th>
+            <th [appTooltip]="tooltips.awardPrice">Award Price</th>
+            <th [appTooltip]="tooltips.granted">Granted</th>
+            <th [appTooltip]="tooltips.exercisable">Exercisable</th>
+            <th [appTooltip]="tooltips.finalExerciseDate">Final Exercise Date</th>
+            <th [appTooltip]="tooltips.unvestedMarketValue">Unvested Market Value</th>
+            <th [appTooltip]="tooltips.exercisableMarketValue">Exercisable Market Value</th>
+            <th>Display</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of vestingData; let i = index" [ngClass]="{'alternate-row': i % 2 !== 0}">
+            <td>{{ item.slNo }}</td>
+            <td>{{ item.symbol }}</td>
+            <td>{{ item.type }}</td>
+            <td>{{ item.awardPrice }}</td>
+            <td>{{ item.granted }}</td>
+            <td>{{ item.exercisable }}</td>
+            <td>{{ item.finalExerciseDate }}</td>
+            <td>{{ item.unvestedMarketValue }}</td>
+            <td>{{ item.exercisableMarketValue }}</td>
+            <td>
+              <button class="view-button" (click)="navigateTo(item.type)">View</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="footer-label">
+    © 2025 EquiHub. All Rights Reserved.
+  </div>

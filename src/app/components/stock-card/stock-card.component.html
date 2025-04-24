@@ -1,0 +1,9 @@
+<div class="stock-card" [ngClass]="colorClass">
+    <div class="card-content">
+      <div class="card-title">{{title}}</div>
+      <div class="card-value">
+        <span *ngIf="isCurrency">$</span>{{value}}
+      </div>
+    </div>
+  </div>
+  

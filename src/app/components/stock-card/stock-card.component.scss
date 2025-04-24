@@ -1,0 +1,47 @@
+.stock-card {
+    border-radius: 12px;
+    padding: 30px;
+    color: white;
+    height: 100%;
+    transition: transform 0.2s;
+    border-radius: 12px;
+    flex: 1;
+    min-width: 250px;
+    max-width: 100%;
+    @media (max-width: 768px) {
+      width: 90%;
+      margin: auto;
+    }
+  
+    
+    &:hover {
+      transform: translateY(-5px);
+    }
+    
+    &.dark-blue {
+      background-color: #0b476b;
+    }
+    
+    &.teal {
+      background-color: #157a76;
+    }
+    
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    
+    .card-title {
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    
+    .card-value {
+      font-size: 3.5rem;
+      font-weight: bold;
+    }
+  }

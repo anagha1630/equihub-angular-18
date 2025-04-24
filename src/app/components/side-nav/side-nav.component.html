@@ -1,0 +1,33 @@
+<!--main container for the side navigation bar-->
+<div class="sidenav h-100">
+
+<!-- logo section -->
+  <div class="logo-container">
+    <div class="logo">
+      <img src="assets/images/equihub-logo.jpg" alt="EquiHub Logo">
+    </div>
+  </div>
+ 
+
+  <!-- navigation buttons 
+   [class.active]="...": dynamically applies the active class to the selected tab
+   (click)="...": when clicked, calls setActiveTab() with the tab name.-->
+  <div class="nav-links">
+    <button class="nav-btn" [class.active]="activeTab === 'RSU'" (click)="setActiveTab('RSU')">RSU</button>
+    <button class="nav-btn" [class.active]="activeTab === 'ESOP'" (click)="setActiveTab('ESOP')">ESOP</button>
+    <button class="nav-btn" [class.active]="activeTab === 'VESTING_SCHEDULE'" (click)="setActiveTab('VESTING_SCHEDULE')">Vest</button>
+  </div>
+ 
+
+  <!--Logout section that uses bi-bi-box-arrow-right bootstrap icon-->
+  <div class="logout-btn">
+    <i class="bi bi-box-arrow-right"></i>
+    <span>Logout</span>
+  </div>
+
+
+  <!--Back button that uses bi-bi-arrow-left bootstrap icon-->
+  <div class="back-btn">
+    <i class="bi bi-arrow-left"></i>
+  </div>
+</div>

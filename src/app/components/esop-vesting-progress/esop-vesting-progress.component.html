@@ -1,0 +1,23 @@
+<!-- esop-vesting-progress.component.html -->
+<div class="vesting-card">
+    <div class="card-title">Vesting Progress</div>
+    
+    <div class="chart-container">
+      <canvas baseChart
+        [datasets]="doughnutChartDatasets"
+        [labels]="doughnutChartLabels"
+        [options]="doughnutChartOptions"
+        [type]="'doughnut'">
+      </canvas>
+      
+      <div class="percentage-indicator">
+        <div class="percentage">{{percentage}}%</div>
+        <div class="label">Vested</div>
+      </div>
+    </div>
+    
+    <div class="next-vesting-date">
+      <div class="date-label">{{nextDate}}</div>
+      <div class="date-value">${{amountValue}}</div>
+    </div>
+  </div>
