@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "equity-awards-tracker:build:production"
+              "buildTarget": "equity-awards-tracker:build:production"
             },
             "development": {
-              "browserTarget": "equity-awards-tracker:build:development"
+              "buildTarget": "equity-awards-tracker:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "equity-awards-tracker:build"
+            "buildTarget": "equity-awards-tracker:build"
           }
         },
         "test": {
